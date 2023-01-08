@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.sass';
+import Tiping from './components/projects/Tiping/Tiping';
+import NotFound from './components/NotFound/NotFound';
+import Ticube from './components/projects/Ticube/Ticube';
+import Main from './components/Main/Main';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className='app'>
+        <Routes>
+          <Route path='/' element={<Main />} />
+          <Route path='/ticube' element={<Ticube />} />
+          <Route path='/tiping' element={<Tiping />} />
+          <Route path='*' element={<NotFound />} /> 
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
